@@ -9,7 +9,7 @@ export const DCPage = () => {
 <hr />
 <HeroList publisher={'DC Comics'}/>
 <ul>
-<li></li>
+
 
 
 
