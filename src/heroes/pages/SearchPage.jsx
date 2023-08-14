@@ -1,7 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForms";
 import { HeroCard } from "../components";
-import queryString from "query-string"; "query-string";
+import queryString from "query-string";
+import { getHeroesByName } from "../helpers";
+
 
 export const SearchPage = () => {
 
@@ -9,11 +11,12 @@ export const SearchPage = () => {
   const location=useLocation();
    
   const {q=''} = queryString.parse(location.search);
+  const heroes=getHeroesByName(q)
   
   
   
   const{searchText,onInputChange}= useForm({
-    searchText:''
+    searchText:q
   })
 
 const onSearchSubmit= (event)=>{
@@ -62,7 +65,11 @@ if (searchText.trim().length <= 1) return
             No hero with <b>{q}</b>
            </div>
 
-            {/* <HeroCard {...hero} /> */}
+            {
+              heroes.map(hero=>(
+                <HeroCard key={hero.id}{...hero}/>
+              ))
+            }
 
          </div>
     </div>    
