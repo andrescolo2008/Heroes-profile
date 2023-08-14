@@ -1,13 +1,16 @@
-import { Navigate, Route, Routes, useNavigate, useParams } from "react-router-dom"
+import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { getHeroById } from "../helpers";
-import { SearchPage } from "./SearchPage";
+
+
+import { useMemo } from "react";
 
 
 export const HeroPage = () => {
 
   const {id} = useParams();
   const navigate =useNavigate()
-const hero = getHeroById(id)
+
+const hero = useMemo(()=> getHeroById(id),[id])
 
 const onNavigateBack =()=>{
   
@@ -26,7 +29,7 @@ return (
             <img 
             src={`/assets/heroes/${id}.jpg`} 
             alt={hero.superhero}
-            className="img-thumbnail" 
+            className="img-thumbnail animate__animated animate__fadeInLeft animate__slow	2s" 
             />
 
        </div>
