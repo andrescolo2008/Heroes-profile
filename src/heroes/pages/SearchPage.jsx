@@ -49,7 +49,8 @@ const onSearchSubmit= (event)=>{
              />  
              
           </form>
-          <button className='btn btn-outline-primary mt-2'>
+          <button className='btn btn-outline-primary mt-2'
+          onClick={onSearchSubmit}>
               Search
              </button>
     </div>
