@@ -7,6 +7,7 @@ describe('pruebas en < authReducer>',()=>{
 test('debe retornar el estado por defecto ', () => { 
    const state = authReducer({logged:false},{})
 
+
    expect(state).toEqual({logged:false},{})
 //    expect(state).toBeFalsy()
     
